@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengelolaan Data Array</title>
+</head>
+<body>
+    <h1>Pengelolaan Data Array</h1>
+
+    <h2>1. Mengurutkan Angka dan Huruf</h2>
+    <p>Angka: [20, 10, 3, 30, 58, 42, 6, 9]</p>
+    <p>Huruf: ['z', 'a', 'c', 'g', 'p']</p>
+    <button onclick="sortData()">Urutkan Angka dan Huruf</button>
+    <p id="sortedOutput"></p>
+
+    <h2>2. Filter Angka Genap</h2>
+    <p>Angka: [1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+    <button onclick="filterGenap()">Tampilkan Angka Genap</button>
+    <p id="genapOutput"></p>
+
+    <h2>3. Cek Genap atau Ganjil</h2>
+    <p>Angka: [1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+    <button onclick="cekGenap()">Cek Genap/Ganjil</button>
+    <p id="genapGanjilOutput"></p>
+
+    <script>
+        // Data untuk bagian pertama
+        const angka1 = [20, 10, 3, 30, 58, 42, 6, 9];
+        const huruf = ['z', 'a', 'c', 'g', 'p'];
+
+        // Fungsi untuk mengurutkan angka dan huruf
+        function sortData() {
+            const angkaSorted = angka1.slice().sort((a, b) => a - b);
+            const hurufSorted = huruf.slice().sort((a, b) => {
+                return angka1[huruf.indexOf(a)] - angka1[huruf.indexOf(b)];
+            });
+
+            document.getElementById("sortedOutput").innerHTML = `Output Angka: [${angkaSorted}]<br>Output Huruf: ['${hurufSorted.join("', '")}']`;
+        }
+
+        // Data untuk bagian kedua dan ketiga
+        const angka2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        // Fungsi untuk filter angka genap
+        function filterGenap() {
+            const angkaGenap = angka2.filter(num => num % 2 === 0);
+            document.getElementById("genapOutput").innerHTML = `Output: [${angkaGenap}]`;
+        }
+
+        // Fungsi untuk cek angka genap atau ganjil
+        function cekGenap() {
+            const isGenap = angka2.map(num => num % 2 === 0);
+            document.getElementById("genapGanjilOutput").innerHTML = `Output: [${isGenap}]`;
+        }
+    </script>
+</body>
+</html>
