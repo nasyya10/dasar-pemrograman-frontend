@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methode Array Javascipt forEach</title>
+</head>
+<body>
+    <h1>Menambah Elemen Array</h1>
+    <script>
+        const buah = ["Apel", "Pisang", "Mangga"];
+        buah.forEach(function(namaBuah){
+            document.write(namaBuah);
+        });
+    </script>
+    <h1>Manipulasi Elemen Array</h1>
+    <script>
+        const angka = [1,2,3]
+        const angkaGanda = [];
+            angka.forEach(function(num){
+                angkaGanda.push(num * 2)
+            });
+        document.write(angkaGanda)
+    </script>
+    <h1>Iterasi Elemen Array</h1>
+    <script>
+        const buku = [
+            {judul1 : "To Kill a Mockingbird", penulis : "Harper Lee"},
+            {judul2 : "1984", penulis : "George Orwell"},
+            {judul3 : "The Catcher in the Rye", penulis : "J.D. Salinger"}
+        ];
+
+        buku.forEach(function(b){
+            document.write("Judul :${b.judul}, penulis : ${b.penulis}");
+        });
+    </script>
+</body>
+</html>
