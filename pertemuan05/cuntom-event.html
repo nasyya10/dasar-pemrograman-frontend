@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Custom Event</title>
+</head>
+<body>
+    <div id="message" style="display: nome; background: lightgreen;">Pendaftaran Berhasil</div>
+    <button id="btn-submit">Daftar Sekarang</button>
+    <script>
+        const eventRegisterComplete = new Event('register-complete');
+        const messageElemen = document.getElementById('btn-submit');
+        document.addEventListener('register-complete',function(e){
+            messageElemen.style.display = "flex";
+        });
+        btnSubmit.addEventListener('click', function(e){
+            document.dispatchEvent(eventRegisterComplete);
+        });
+    </script>
+</body>
+</html>

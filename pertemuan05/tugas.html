@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Klik</title>
+</head>
+<body>
+
+    <button id="klikBtn">Klik Saya!</button>
+    <p>Jumlah klik: <span id="jumlahKlik">0</span></p>
+
+    <script>
+        let jumlahKlik = 0;
+
+        document.getElementById("klikBtn").addEventListener("click", function() {
+            jumlahKlik++;
+            document.getElementById("jumlahKlik").textContent = jumlahKlik;
+        });
+    </script>
+
+</body>
+</html>
