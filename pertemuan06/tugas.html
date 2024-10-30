@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .data-pembelian {
+            margin-top: 20px;
+        }
+        .data-pembelian div {
+            margin-bottom: 5px;
+        }
+        .data-pembelian span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="namaBuah" placeholder="Masukkan nama buah...">
+    <button id="beli">Beli</button>
+
+    <div class="data-pembelian">
+        <div><span>Nama Buah</span> : <span id="namaBuahValue"></span></div>
+        <div><span>Harga / Kg</span> : <span id="hargaBuahValue"></span></div>
+        <div><span>Diskon</span> : <span id="diskonBuahValue"></span></div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Buah</th>
+                <th>Harga / Kg</th>
+                <th>Diskon</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                 <td id="namaBuahTable"></td>
+                 <td id="hargaBuahTable"></td>
+                 <td id="diskonBuahTable"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const namaBuahInput = document.getElementById('namaBuah');
+        const beliButton = document.getElementById('beli');
+        const namaBuahValue = document.getElementById('namaBuahValue');
+        const hargaBuahValue = document.getElementById('hargaBuahValue');
+        const diskonBuahValue = document.getElementById('diskonBuahValue');
+        const namaBuahTable = document.getElementById('namaBuahTable');
+        const hargaBuahTable = document.getElementById('hargaBuahTable');
+        const diskonBuahTable = document.getElementById('diskonBuahTable');
+
+        beliButton.addEventListener('click', () => {
+            const namaBuah = namaBuahInput.value;
+            const hargaBuah = 10000; 
+            const diskonBuah = 0; 
+
+            namaBuahValue.textContent = namaBuah;
+            hargaBuahValue.textContent = hargaBuah;
+            diskonBuahValue.textContent = diskonBuah;
+
+            namaBuahTable.textContent = namaBuah;
+            hargaBuahTable.textContent = hargaBuah;
+            diskonBuahTable.textContent = diskonBuah;
+        });
+    </script>
+</body>
+</html>
