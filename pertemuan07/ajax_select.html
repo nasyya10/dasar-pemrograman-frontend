@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Penggunaan Select dengan JQuery</title>
+</head>
+<body>
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div id="main" data-loading="true"></div>
+    <form>
+        <select name="package" id="package">
+            <option data-price="100000" data-discount="10">Paket 1</option>
+            <option data-price="100000" data-discount="10">Paket 2</option>
+            <option data-price="100000" data-discount="10">Paket 3</option>
+        </select>
+        <div>
+            <label for="price">Harga</label>
+            <input type-="text" name="price" readonly/>
+            <br>
+            <label for="price">Discount</label>
+            <input type="text" name="discount" readonly/>
+            <br>
+            <h4>Total : <span id="total">0</span></h4> 
+        </div>
+    </form>
+    <script>
+        $('#package').on('change', function(){
+            const price = $('#package option:selected').data('price');
+            const discount = $('#packege option:selected').data('discount');
+            const totalDicount = (price * discount/100)
+            const total = price - totalDicount
+            $('[name=price]').val(price)
+            $('[name=discount]').val(totalDicount)
+            $('#total').text('Rp ${total}')
+        });
+    </script>
+</body>
+</html>

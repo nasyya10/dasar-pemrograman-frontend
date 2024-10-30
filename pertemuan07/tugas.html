@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Penggunaan Select dengan JQuery</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div id="main" data-loading="true"></div>
+    <form>
+        <select name="package" id="package">
+            <option data-price="100000" data-discount="10">Paket 1</option>
+            <option data-price="150000" data-discount="15">Paket 2</option>
+            <option data-price="200000" data-discount="20">Paket 3</option>
+        </select>
+        <div>
+            <label for="price">Harga</label>
+            <input type="text" name="price" readonly/>
+            <br>
+            <label for="discount">Discount</label>
+            <input type="text" name="discount" readonly/>
+            <br>
+            <h4>Total : <span id="total">0</span></h4> 
+        </div>
+    </form>
+    <script>
+        $('#package').on('change', function(){
+            const price = $('#package option:selected').data('price');
+            const discount = $('#package option:selected').data('discount');
+            const totalDiscount = (price * discount / 100);
+            const total = price - totalDiscount;
+            $('[name=price]').val(price);
+            $('[name=discount]').val(totalDiscount);
+            $('#total').text(`Rp ${total}`);
+        });
+        
+        // Trigger perubahan awal secara otomatis
+        $('#package').trigger('change');
+    </script>
+</body>
+</html>
