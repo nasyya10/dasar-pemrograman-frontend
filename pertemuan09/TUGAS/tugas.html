@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Buah</title>
+    <style>
+        /* General Styling */
+        body { 
+            font-family: 'Poppins', Arial, sans-serif; 
+            margin: 0; 
+            text-align: center; 
+            background: linear-gradient(to bottom, #FFDEE9, #B5FFFC); 
+            min-height: 100vh; 
+            color: #333;
+        }
+        h1 {
+            color: #333;
+            margin: 30px 0;
+            font-size: 2.5rem;
+        }
+
+        /* NCT Container */
+        .nct-container {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 200px;
+        }
+        .nct-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+        .nct-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        .nct-container:hover img {
+            transform: scale(1.1);
+        }
+        .nnct-container p {
+            background: #FF7A59;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); z-index: 999;
+            animation: fadeIn 0.5s;
+        }
+
+        /* Popup */
+        .popup {
+            display: none;
+            position: fixed; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%; max-width: 400px;
+            z-index: 1000;
+            animation: slideIn 0.5s forwards;
+        }
+        .popup img {
+            width: 120px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+        .popup h2 {
+            margin: 10px 0;
+            color: #333;
+            font-size: 1.8rem;
+        }
+        .popup p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .close-btn {
+            background: #FF7A59;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        .close-btn:hover {
+            background: #E85540;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Informasi Member NCT DREAM</h1>
+
+    <!-- MARK LEE -->
+    <div class="nct-container" data-name="Mark" data-desc="Mark Facts: Mark was born in Toronto but moved to Vancouver, Canada at a very young age. His favorite color is blue. 
+    Favorite artists: Beyonce, Coldplay, Chris Brown, SHINee's Minho, & EXO's XIUMIN. Favorite sports: Badminton, Ice skating. Mark is afraid of people, especially Haechan. 
+    He's also part of NCT 127 and NCT U. He is also part of SUPERM"
+         data-img="mark.jpeg">
+        <img src="mark.jpeg" alt="Mark">
+        <p>Mark</p>
+    </div>
+
+    <!-- HWANG RENJUNG -->
+    <div class="nct-container" data-name="Renjun" data-desc="Renjun Facts: He was born in Jilin, the People's Republic of China. Renjun's favorite school subject is Korean. 
+    There is no subject that he hates. His new nickname is “Injoong”. Because of where he lived, he grew up bilingual in both Korean and Mandarin. However, he also understands English very well.
+    His favorite movies: Avengers and Avatar. Renjun's favorite movie is Awake He appreciates Lay from EXO a lot. Renjun says he's aware of how dirty the room he shares with Jisung and Jeno is. 
+    He says all the lotions are all over the place, but they have their own spots."
+         data-img="renjun.jpeg">
+        <img src="renjun.jpeg" alt="Renjun">
+        <p>Renjun</p>
+    </div>
+
+    <!-- LEE JENO -->
+    <div class="nct-container" data-name="Jeno" data-desc="Jeno Facts: He was born in Incheon, South Korea. Favorite Color: Blue. Favorite Artists: SUPER JUNIOR's Donghae & Siwon, NCT's Jaehyun, Dynamic Duo, Maroon 5, & Yoo Jaesuk. 
+    Jeno can play the guitar. (as seen in MY SMT with Nct Dream (161024)) and in NCT LIFE with Nct Dream. Jeno said he hates math the most. He is allergic to fur, though his family owns 3 cats"
+         data-img="jeno.jpeg">
+        <img src="jeno.jpeg" alt="Jeno">
+        <p>Renjun</p>
+    </div>
+
+    <!-- LEE HAECHAN -->
+    <div class="nct-container" data-name="Haechan" data-desc="Haechan Facts: He was born in Seoul but moved to Jeju when he was 7 through to the age of 12. Specialty: Dance and playing football. Nickname: Dongsookie.
+    His hobbies are playing piano, listening to music, and singing. Haechan dreams to become a singer-songwriter. He's the mood maker of the group. He does the most cleaning in the dorm. Haechan is the only member who is most likely to answer his phone. 
+    He was announced as an NCT U member for the STATION X special release, on December 2, 2019. He's also part of NCT 127. Haechan lives in the NCT 127 dorm. In the new dorm, Haechan and Johnny are roommates."
+         data-img="haechan.jpeg">
+        <img src="haechan.jpeg" alt="Haechan">
+        <p>Haechan</p>
+    </div>
+
+    <!-- NA JAEMIN -->
+    <div class="nct-container" data-name="jaemin" data-desc="Jaemin Facts: He was born in Seoul, South Korea. Jaemin doesn't have any siblings and wants a sister. Nickname: Nana. Favorite Color: White. Favorite Artists: Lee Young Dae, EXO's KAI, Tight Eyez.
+    Haechan says that one could wash clothes on Jaemin's abs. Jaemin takes really short showers."
+         data-img="jaemin.jpeg">
+        <img src="jaemin.jpeg" alt="Jaemin">
+        <p>Jaemin</p>
+    </div>
+    
+   <!-- CHANLE -->
+   <div class="nct-container" data-name="chanle" data-desc="Chenle Facts: He was born in Shanghai, the People's Republic of China. Chenle debuted only after 2 months of training. His hobbies are cooking, football and everything related to music.
+   He appreciates LAY (EXO) a lot. Chenle is afraid of spiders. He can play the piano. He speaks mandarin in his sleep. Chenle likes Chocolate Milk. Renjun said when Chenle makes eggs, oil is all over the floor.
+   Chenle is known as “Dolphin” because of his high-pitched laugh and screams. Chenle doesn't live in the dormitory anymore, his mom bought a house in Seoul and stays with him. If his mom has a business to attend to in China, his aunts stay with him."
+        data-img="chanle.jpeg">
+       <img src="chanle.jpeg" alt="Chanle">
+       <p>Chanle</p>
+   </div>
+
+   <!-- JISUNG -->
+   <div class="nct-container" data-name="jisung" data-desc="Jisung Facts: He was born in Seoul, South Korea, but lived in Busan for 3-4 years. Specialty: Popping, Locking. Favorite Sport: Soccer. Favorite Artist: EXO's KAI. Hobbies: Rapping, Dancing, Singing
+   He sleeps in the living room of the dorm because he says since he has the top bunk, it takes too long to get up and down from it. Jisung can understand English well, but he's not confident in his pronunciation."
+        data-img="jisung.jpeg">
+       <img src="jisung.jpeg" alt="Jisung">
+       <p>Jisung</p>
+   </div>
+
+    <!-- Overlay and Popup -->
+    <div class="overlay"></div>
+    <div class="popup">
+        <img id="popup-img" src="" alt="NCT">
+        <h2 id="popup-title"></h2>
+        <p id="popup-desc"></p>
+        <button class="close-btn">Tutup</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Ketika gambar buah diklik
+            $(".nct-container").click(function() {
+                const name = $(this).data("name");
+                const desc = $(this).data("desc");
+                const img = $(this).data("img");
+
+                // Isi popup dengan data
+                $("#popup-title").text(name);
+                $("#popup-desc").text(desc);
+                $("#popup-img").attr("src", img);
+
+                // Tampilkan popup
+                $(".overlay, .popup").fadeIn();
+            });
+
+            // Tutup popup saat tombol atau overlay diklik
+            $(".close-btn, .overlay").click(function() {
+                $(".overlay, .popup").fadeOut();
+            });
+        });
+    </script>
+</body>
+</html>

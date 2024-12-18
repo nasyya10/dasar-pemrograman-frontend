@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Gambar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .container img {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid #ddd;
+        }
+
+        .button {
+            margin-top: 10px;
+            background-color: #f47835;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Popup Style */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+        }
+
+        .popup-header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .popup-body {
+            padding: 15px;
+            text-align: justify;
+        }
+
+        .popup-body img {
+            display: block;
+            margin: 0 auto 10px;
+            width: 100px;
+        }
+
+        .close-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            float: right;
+            margin: 5px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Buah-buahan</h1>
+
+    <div class="container">
+        <img src="nanas.jpg" alt="Nanas" id="nanas">
+        <br>
+        <button class="button" id="btn-nanas">Nanas</button>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup-nanas">
+        <div class="popup-header">
+            <span>Popup</span>
+            <button class="close-btn" id="close-popup">X</button>
+        </div>
+        <div class="popup-body">
+            <img src="nanas.jpg" alt="Nanas">
+            <p>
+                Nanas adalah buah tropis yang berasal dari tanaman *Ananas comosus*. 
+                Buah ini memiliki kulit yang berduri dan daging buah yang manis dengan rasa segar yang khas. 
+                Nanas biasanya memiliki warna kuning atau kuning-hijau saat matang, dan sering digunakan 
+                dalam berbagai hidangan dan minuman karena rasanya yang unik dan menyegarkan.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Tampilkan popup saat tombol diklik
+            $("#btn-nanas").click(function() {
+                $("#popup-nanas").fadeIn();
+            });
+
+            // Tutup popup saat tombol close diklik
+            $("#close-popup").click(function() {
+                $("#popup-nanas").fadeOut();
+            });
+        });
+    </script>
+</body>
+</html>
